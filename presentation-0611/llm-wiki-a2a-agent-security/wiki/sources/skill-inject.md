@@ -9,8 +9,6 @@ tags:
   - claude-code
   - gemini-cli
   - prompt-injection
-source_pdf: ../../raw/papers/2602.20156-skill-inject.pdf
-source_text: ../../raw/text/2602.20156-skill-inject.txt
 source_url: https://arxiv.org/abs/2602.20156
 ---
 

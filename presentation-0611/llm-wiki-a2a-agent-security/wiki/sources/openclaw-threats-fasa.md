@@ -8,8 +8,6 @@ tags:
   - fasa
   - clawguard
   - zero-trust
-source_pdf: ../../raw/papers/2603.12644-openclaw-threats-fasa.pdf
-source_text: ../../raw/text/2603.12644-openclaw-threats-fasa.txt
 source_url: https://arxiv.org/abs/2603.12644
 ---
 

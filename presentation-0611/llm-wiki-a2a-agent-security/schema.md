@@ -4,9 +4,9 @@
 
 ## Source of Truth
 
-- `raw/` 아래 원본 파일은 불변 자료로 취급한다.
+- 공개 사이트의 원문 기준은 `sources.md`에 정리한 아카이브 링크다.
 - `wiki/` 아래 markdown은 원본을 읽고 만든 파생 지식이다.
-- 논문 내용을 갱신할 때는 먼저 `raw/papers/`와 `raw/text/`를 확인하고, 그 다음 `wiki/sources/`, `wiki/concepts/`, `wiki/synthesis/`, `wiki/index.md`, `wiki/log.md`를 갱신한다.
+- 논문 내용을 갱신할 때는 먼저 원문 아카이브를 확인하고, 그 다음 `wiki/sources/`, `wiki/concepts/`, `wiki/synthesis/`, `wiki/index.md`, `wiki/log.md`를 갱신한다.
 
 ## Page Types
 
@@ -20,7 +20,7 @@
 
 각 source page는 다음 순서를 따른다.
 
-1. YAML frontmatter: title, authors, year, source_type, tags, source_pdf, source_text, source_url.
+1. YAML frontmatter: title, authors, year, source_type, tags, source_url.
 2. `#` 제목.
 3. `한 줄 요약`.
 4. `발표에 쓸 포인트`.
@@ -43,8 +43,8 @@
 ## Linking Rules
 
 - 내부 링크는 Obsidian-style wikilink보다 일반 markdown 링크를 우선한다. GitHub와 Codex에서 바로 열기 쉽기 때문이다.
-- 논문 source page에서는 raw PDF와 raw text를 모두 링크한다.
-- 합성 페이지에서는 최소한 source page를 링크하고, 필요할 때 raw PDF로도 연결한다.
+- 논문 source page에서는 원문 아카이브 URL을 유지한다.
+- 합성 페이지에서는 source page를 우선 링크하고, 필요할 때 `sources.md`의 아카이브 링크로 연결한다.
 
 ## Lint Checklist
 
@@ -58,4 +58,3 @@
 ## External Reference
 
 - Karpathy, `LLM Wiki`: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
-

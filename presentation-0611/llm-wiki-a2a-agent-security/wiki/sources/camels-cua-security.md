@@ -8,8 +8,6 @@ tags:
   - prompt-injection
   - dual-llm
   - nova
-source_pdf: ../../raw/papers/2601.09923-camels-cua-security.pdf
-source_text: ../../raw/text/2601.09923-camels-cua-security.txt
 source_url: https://arxiv.org/abs/2601.09923
 ---
 

@@ -9,8 +9,6 @@ tags:
   - codex
   - claude-code
   - gemini-cli
-source_pdf: ../../raw/papers/2604.03081-skill-supply-chain-poisoning.pdf
-source_text: ../../raw/text/2604.03081-skill-supply-chain-poisoning.txt
 source_url: https://arxiv.org/abs/2604.03081
 ---
 

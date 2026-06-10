@@ -7,8 +7,6 @@ tags:
   - computer-use-agent
   - runtime-monitoring
   - defense
-source_pdf: ../../raw/papers/2509.07764-agentsentinel.pdf
-source_text: ../../raw/text/2509.07764-agentsentinel.txt
 source_url: https://arxiv.org/abs/2509.07764
 ---
 

@@ -8,8 +8,6 @@ tags:
   - a2a
   - protocol-security
   - threat-modeling
-source_pdf: ../../raw/papers/2602.11327-agent-protocol-threat-modeling.pdf
-source_text: ../../raw/text/2602.11327-agent-protocol-threat-modeling.txt
 source_url: https://arxiv.org/abs/2602.11327
 ---
 

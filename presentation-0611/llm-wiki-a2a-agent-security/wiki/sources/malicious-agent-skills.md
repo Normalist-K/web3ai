@@ -8,8 +8,6 @@ tags:
   - empirical-study
   - supply-chain
   - malicious-skills
-source_pdf: ../../raw/papers/2602.06547-malicious-agent-skills.pdf
-source_text: ../../raw/text/2602.06547-malicious-agent-skills.txt
 source_url: https://arxiv.org/abs/2602.06547
 ---
 

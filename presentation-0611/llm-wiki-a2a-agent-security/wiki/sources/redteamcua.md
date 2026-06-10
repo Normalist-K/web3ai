@@ -7,8 +7,6 @@ tags:
   - computer-use-agent
   - red-teaming
   - indirect-prompt-injection
-source_pdf: ../../raw/papers/2505.21936-redteamcua.pdf
-source_text: ../../raw/text/2505.21936-redteamcua.txt
 source_url: https://arxiv.org/abs/2505.21936
 ---
 

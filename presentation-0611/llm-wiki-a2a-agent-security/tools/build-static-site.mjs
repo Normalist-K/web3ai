@@ -12,7 +12,7 @@ const NAV_GROUPS = [
       ["Overview", "index.html"],
       ["Wiki Index", "wiki/index.html"],
       ["Schema", "schema.html"],
-      ["Raw Manifest", "raw/manifest.html"],
+      ["Source Links", "sources.html"],
     ],
   },
   {
@@ -31,7 +31,6 @@ const NAV_GROUPS = [
     title: "Notes",
     items: [
       ["Ingest Log", "wiki/log.html"],
-      ["Pasted Literature Map", "raw/notes/pasted-literature-map.html"],
     ],
   },
 ];
@@ -156,7 +155,8 @@ function renderTable(lines) {
 }
 
 function renderMarkdown(markdown) {
-  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const bodyMarkdown = markdown.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const lines = bodyMarkdown.replace(/\r\n/g, "\n").split("\n");
   const html = [];
   let index = 0;
   headingCounter = 0;
@@ -265,6 +265,9 @@ async function walkMarkdown(dir, base = dir) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       if (entry.name === "node_modules" || entry.name === ".git") {
+        continue;
+      }
+      if (entry.name === "raw") {
         continue;
       }
       files.push(...(await walkMarkdown(fullPath, base)));

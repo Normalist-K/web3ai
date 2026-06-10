@@ -8,8 +8,6 @@ tags:
   - local-agents
   - trust-boundary
   - rce
-source_pdf: ../../raw/papers/2603.27517-openclaw-security-analysis.pdf
-source_text: ../../raw/text/2603.27517-openclaw-security-analysis.txt
 source_url: https://arxiv.org/abs/2603.27517
 ---
 

@@ -7,8 +7,6 @@ tags:
   - a2a
   - protocol-security
   - benchmark
-source_pdf: ../../raw/papers/a2asecbench-iclr2026.pdf
-source_text: ../../raw/text/a2asecbench-iclr2026.txt
 source_url: https://openreview.net/forum?id=LfdFnakqGJ
 ---
 

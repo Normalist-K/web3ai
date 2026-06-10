@@ -8,8 +8,6 @@ tags:
   - worm
   - propagation
   - skills
-source_pdf: ../../raw/papers/2603.15727-clawworm.pdf
-source_text: ../../raw/text/2603.15727-clawworm.txt
 source_url: https://arxiv.org/abs/2603.15727
 ---
 
