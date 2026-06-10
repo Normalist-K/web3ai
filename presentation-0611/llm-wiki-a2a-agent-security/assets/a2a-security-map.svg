@@ -3,8 +3,8 @@
   <desc id="desc">A diagram showing trust boundaries between local agents, A2A peers, skills, artifacts, and runtime defenses.</desc>
   <rect width="1120" height="430" fill="#fffdf8"/>
   <rect x="34" y="38" width="1052" height="354" fill="#f7f4ef" stroke="#ddd7cb" stroke-width="2"/>
-  <line x1="558" y1="72" x2="558" y2="358" stroke="#b44728" stroke-width="3" stroke-dasharray="10 12"/>
-  <text x="558" y="61" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#b44728">Trust Boundary</text>
+  <line x1="352" y1="72" x2="352" y2="358" stroke="#b44728" stroke-width="3" stroke-dasharray="10 12"/>
+  <text x="352" y="61" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#b44728">Trust Boundary</text>
 
   <g font-family="system-ui, sans-serif">
     <rect x="82" y="116" width="214" height="112" rx="8" fill="#eaf4f2" stroke="#176f6b" stroke-width="2"/>
