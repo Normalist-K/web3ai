@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply-Chain Poisoning Against LLM Coding Agent Skills | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a class="active" href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>Supply-Chain Poisoning Against LLM Coding Agent Skills</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/skill-supply-chain-poisoning.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems authors: Yubin Qu, Yi Liu, Tongcheng Geng, Gelei Deng, Yuekang Li, Leo Yu Zhang, Ying Zhang, Lei Ma year: 2026 source_type: arxiv tags:</p>
+<ul><li>skills</li><li>supply-chain</li><li>codex</li><li>claude-code</li><li>gemini-cli</li></ul>
+<p>source_pdf: ../../raw/papers/2604.03081-skill-supply-chain-poisoning.pdf source_text: ../../raw/text/2604.03081-skill-supply-chain-poisoning.txt source_url: https://arxiv.org/abs/2604.03081 ---</p>
+<h1 id="supply-chain-poisoning-against-llm-coding-agent-skills">Supply-Chain Poisoning Against LLM Coding Agent Skills</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>악성 지시를 직접 쓰지 않고, skill 문서의 코드 예시와 설정 템플릿 안에 payload logic을 숨기는 DDIPE 방식으로 coding agent의 action space를 오염시킬 수 있음을 보인다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>coding agent는 skill 문서의 예시를 “좋은 구현 패턴”으로 재사용한다.</li><li>그래서 명시적 악성 명령보다 문서 기반 implicit payload가 더 위험할 수 있다.</li><li>Codex의 sandbox, Claude Code의 review, Gemini CLI의 safety filtering처럼 방어가 있어도 skill semantic auditing이 필요하다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>논문은 Document-Driven Implicit Payload Execution, DDIPE를 제안한다. 악성 payload를 imperative instruction으로 쓰는 대신, 정상적인 code example, configuration template, DevOps snippet처럼 보이게 넣는다.</p>
+<p>평가:</p>
+<ul><li>81 seed에서 1,070 adversarial skills를 생성한다.</li><li>15개 MITRE ATT&amp;CK category를 포괄한다.</li><li>Claude Code, OpenHands, Codex, Gemini CLI 및 여러 model을 평가한다.</li><li>가장 강한 방어에서도 direct execution이 완전히 사라지지 않는다고 보고한다.</li></ul>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>발표의 skill/MCP 파트에서 “내 환경 안으로 가져오면 안전하다”라고 단순화하면 안 된다. skill은 내 agent가 실행할 수 있는 operational directive가 되므로, provenance, permission, semantic review가 필요하다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>일부 사례는 controlled setup에서 활성화된 skill을 전제로 한다.</li><li>구체적 payload 내용보다 “문서와 실행 지시의 경계 붕괴”를 중심으로 인용하는 편이 좋다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/skill-supply-chain.html">Skill Supply Chain</a></li><li><a href="../concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

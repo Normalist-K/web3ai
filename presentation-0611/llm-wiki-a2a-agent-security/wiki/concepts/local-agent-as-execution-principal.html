@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Agent as Execution Principal | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a class="active" href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>Local Agent as Execution Principal</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/concepts/local-agent-as-execution-principal.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: Local Agent as Execution Principal tags:</p>
+<ul><li>local-agent</li><li>execution</li><li>security</li></ul>
+<p>sources:</p>
+<ul><li>../sources/openclaw-security-analysis.md</li><li>../sources/clawworm.md</li><li>../sources/agentsentinel.md</li></ul>
+<p>---</p>
+<h1 id="local-agent-as-execution-principal">Local Agent as Execution Principal</h1>
+<h2 id="정의">정의</h2>
+<p>로컬 에이전트는 단순 assistant가 아니라 사용자의 파일, shell, browser, messaging channel, credential-adjacent surface에 action을 수행할 수 있는 실행 주체다.</p>
+<h2 id="왜-중요한가">왜 중요한가</h2>
+<p>A2A 메시지가 직접 명령어가 아니더라도, 로컬 에이전트가 그것을 trusted context로 해석하면 local side effect가 생길 수 있다. 따라서 보안 경계는 LLM prompt가 아니라 실행 권한과 side effect까지 내려가야 한다.</p>
+<h2 id="관련-논문">관련 논문</h2>
+<ul><li><a href="../sources/openclaw-security-analysis.html">OpenClaw security analysis</a>: LLM tool call에서 host process까지 이어지는 cross-layer trust collapse를 분석한다.</li><li><a href="../sources/clawworm.html">ClawWorm</a>: persistent configuration과 messaging channel이 결합될 때 propagation이 가능함을 보인다.</li><li><a href="../sources/agentsentinel.html">AgentSentinel</a>: 민감 operation을 runtime에서 가로채는 방어를 제안한다.</li></ul>
+<h2 id="발표에서-쓸-문장">발표에서 쓸 문장</h2>
+<p>“로컬 에이전트가 A2A peer가 되면, 원격 메시지는 내 컴퓨터의 실행 권한과 간접적으로 연결된다.”</p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

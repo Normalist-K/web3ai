@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RedTeamCUA | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a class="active" href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>RedTeamCUA</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/redteamcua.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments authors: Zeyi Liao, Jaylen Jones, Linxi Jiang, Eric Fosler-Lussier, Yu Su, Zhiqiang Lin, Huan Sun year: 2025 source_type: arxiv tags:</p>
+<ul><li>computer-use-agent</li><li>red-teaming</li><li>indirect-prompt-injection</li></ul>
+<p>source_pdf: ../../raw/papers/2505.21936-redteamcua.pdf source_text: ../../raw/text/2505.21936-redteamcua.txt source_url: https://arxiv.org/abs/2505.21936 ---</p>
+<h1 id="redteamcua">RedTeamCUA</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>web과 OS가 결합된 현실적 CUA 환경에서 indirect prompt injection을 평가하기 위한 hybrid sandbox와 RTC-Bench를 제안한다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>CUA 공격은 웹페이지 안의 지시와 OS-level action이 이어질 때 현실화된다.</li><li>benchmark는 864개 예시와 hybrid web-OS attack pathway를 포함한다.</li><li>Operator 같은 built-in safety mechanism이 있는 시스템도 non-zero ASR을 보인다.</li><li>Attempt Rate가 ASR보다 높다는 점은 agent가 “시도는 했지만 능력 부족으로 실패”하는 경우가 많다는 뜻이다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>RedTeamCUA는 VM-based OS sandbox와 Docker-based web platform을 결합한다. 목표는 단순 웹 injection이 아니라 hybrid web-OS scenario에서 agent가 실제로 민감 action을 시도하거나 완료하는지 평가하는 것이다.</p>
+<p>논문은 ASR과 함께 Attempt Rate를 사용한다. 이는 harmful goal을 완료하지 못했더라도 agent가 그 방향으로 행동했는지를 포착한다.</p>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>발표에서 A2A agent가 “외부 세계와 상호작용한다”는 말은 웹과 OS를 넘나드는 action을 포함할 수 있다. 따라서 A2A의 신뢰 문제는 protocol 수준에서 끝나지 않고 실제 action environment 평가와 결합되어야 한다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>CUA red-team 논문이며 A2A 논문은 아니다.</li><li>발표에서는 수치보다 “hybrid web-OS 환경의 indirect prompt injection”이라는 문제 형태를 설명하는 데 쓰면 좋다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li><li><a href="../concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

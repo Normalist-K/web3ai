@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Security Analysis of the OpenClaw AI Agent Framework | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a class="active" href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>A Security Analysis of the OpenClaw AI Agent Framework</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/openclaw-security-analysis.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: A Security Analysis of the OpenClaw AI Agent Framework authors: Surada Suwansathit, Yuxuan Zhang, Guofei Gu year: 2026 source_type: arxiv tags:</p>
+<ul><li>openclaw</li><li>local-agents</li><li>trust-boundary</li><li>rce</li></ul>
+<p>source_pdf: ../../raw/papers/2603.27517-openclaw-security-analysis.pdf source_text: ../../raw/text/2603.27517-openclaw-security-analysis.txt source_url: https://arxiv.org/abs/2603.27517 ---</p>
+<h1 id="a-security-analysis-of-the-openclaw-ai-agent-framework">A Security Analysis of the OpenClaw AI Agent Framework</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>OpenClaw 470개 security advisory를 architectural layer와 trust-violation type으로 분류해, 로컬 agent runtime의 핵심 문제가 분산된 신뢰 판단과 cross-layer composition임을 보인다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>로컬 agent는 LLM tool call을 shell, filesystem, browser, container, messaging으로 연결한다.</li><li>취약점은 한 layer의 버그보다 여러 layer의 신뢰 가정이 결합될 때 커진다.</li><li>skill은 operator-trusted instruction으로 context에 들어가기 때문에 코드 공급망과 비슷한 보안 문제가 생긴다.</li><li>방어의 핵심은 “각 layer가 알아서 조심”이 아니라 component boundary를 가로지르는 unified policy boundary다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>논문은 OpenClaw 취약점을 다음 축으로 본다.</p>
+<ul><li>System axis: channel, gateway, plugin/skill, agent runtime, memory, LLM provider, local execution 등.</li><li>Attack axis: identity spoofing, policy bypass, cross-layer composition, prompt injection, supply-chain trust escalation 등.</li></ul>
+<p>주요 findings:</p>
+<ul><li>Gateway와 Node-Host subsystem의 advisory들이 결합되어 LLM tool call에서 host process까지 이어지는 unauthenticated RCE path가 가능해진다.</li><li>exec allowlist가 shell command identity를 lexical parsing으로 회수할 수 있다는 닫힌 세계 가정을 두고 있어 우회 가능하다.</li><li>malicious skill은 LLM context 안에서 operator-trusted instruction으로 실행되어 runtime policy 밖 공격면이 된다.</li></ul>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>A2A agent가 로컬 OpenClaw/Codex/Claude Code류 실행 환경과 연결되면, 원격 메시지는 단순 텍스트가 아니라 local execution principal의 판단과 action에 영향을 줄 수 있다. 발표에서는 “로컬 agent를 A2A에 붙이는 순간 trust boundary가 내 컴퓨터까지 내려온다”는 근거로 쓸 수 있다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>논문은 OpenClaw 특정 advisory corpus에 기반한다.</li><li>발표에서는 OpenClaw 고유 구현 버그가 아니라 “로컬 agent runtime의 구조적 위험”을 강조하는 편이 안전하다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li><li><a href="../concepts/skill-supply-chain.html">Skill Supply Chain</a></li><li><a href="../concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

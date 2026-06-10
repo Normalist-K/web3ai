@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentSentinel | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a class="active" href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>AgentSentinel</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/agentsentinel.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: AgentSentinel: An End-to-End and Real-Time Security Defense Framework for Computer-Use Agents authors: Haitao Hu, Peng Chen, Yanpeng Zhao, Yuqi Chen year: 2025 source_type: arxiv tags:</p>
+<ul><li>computer-use-agent</li><li>runtime-monitoring</li><li>defense</li></ul>
+<p>source_pdf: ../../raw/papers/2509.07764-agentsentinel.pdf source_text: ../../raw/text/2509.07764-agentsentinel.txt source_url: https://arxiv.org/abs/2509.07764 ---</p>
+<h1 id="agentsentinel">AgentSentinel</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>computer-use agent의 민감한 OS-level operation을 실시간으로 추적, 중단, 감사한 뒤 resume 또는 terminate하는 방어 framework다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>CUA 방어는 agent 답변을 검사하는 것만으로 부족하고 side effect를 봐야 한다.</li><li>AgentSentinel은 process, file, network 등 민감 operation을 tracing하고 audit한다.</li><li>BadComputerUse benchmark에서 공격 ASR 87%를 보고하고, AgentSentinel은 평균 defense success rate 79.6%를 달성한다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>AgentSentinel은 client-server 구조로 agent service에 붙는다. 민감 operation이 감지되면 해당 process를 일시 중단하고, rule-based auditor와 LLM-based auditor가 task context 및 system trace를 함께 검토한다. 안전하면 resume하고, 위험하면 terminate한다.</p>
+<p>성능과 usability를 위해 security query cache와 QPS optimizer를 둔다.</p>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>발표에서 “외부 세계와 통신하는 agent는 실행 책임과 감사 로그가 필요하다”는 부분을 보강한다. A2A agent가 상대 agent나 사용자 대신 action을 수행한다면, action 전후의 side effect를 기록하고 민감 action을 차단할 수 있어야 한다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>AgentSentinel은 CUA runtime defense이며 A2A protocol defense는 아니다.</li><li>false positive와 latency trade-off가 있다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li><li><a href="../concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

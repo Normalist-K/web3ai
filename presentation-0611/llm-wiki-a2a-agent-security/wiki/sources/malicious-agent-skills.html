@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detecting and Understanding Malicious Agent Skills | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a class="active" href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>Detecting and Understanding Malicious Agent Skills</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/malicious-agent-skills.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: '&quot;Do Not Mention This to the User&quot;: Detecting and Understanding Malicious Agent Skills' authors: Yi Liu, Zhihao Chen, Yanjun Zhang, Gelei Deng, Yuekang Li, Jianting Ning, Leo Yu Zhang year: 2026 source_type: arxiv tags:</p>
+<ul><li>skills</li><li>empirical-study</li><li>supply-chain</li><li>malicious-skills</li></ul>
+<p>source_pdf: ../../raw/papers/2602.06547-malicious-agent-skills.pdf source_text: ../../raw/text/2602.06547-malicious-agent-skills.txt source_url: https://arxiv.org/abs/2602.06547 ---</p>
+<h1 id="detecting-and-understanding-malicious-agent-skills">Detecting and Understanding Malicious Agent Skills</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>실제 skill registry 98,380개를 분석해 157개 confirmed malicious skills와 632개 vulnerability를 식별하며, agent skill supply-chain 위험이 이미 현실화됐음을 보인다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>skill 생태계는 빠르게 커지지만 registry vetting은 충분하지 않을 수 있다.</li><li>악성 skill은 credential theft, remote code execution, agent manipulation을 결합한다.</li><li>공격은 코드뿐 아니라 자연어 문서와 hidden/shadow feature를 통해 나타난다.</li><li>responsible disclosure 이후 157개가 제거됐지만, reactive removal만으로는 사용자를 보호하기 어렵다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>논문은 두 community registry에서 98,380개 skill을 수집하고, static matching, dynamic sandbox verification, human annotation을 결합해 157개 confirmed malicious skills를 찾는다. 이 안에서 632개 vulnerability를 분류한다.</p>
+<p>주요 관찰:</p>
+<ul><li>malicious skill은 평균 4.03개 vulnerability를 가진다.</li><li>dominant strategy는 credential theft via remote code execution과 documentation에 숨어 있는 agent manipulation이다.</li><li>많은 악성 skill이 public description과 실제 behavior가 다른 shadow feature를 가진다.</li><li>특정 threat actor의 templated brand impersonation이 큰 비중을 차지한다.</li></ul>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>이 논문은 발표에서 “skill은 기능을 가져오는 좋은 방식”이라는 긍정적 주장에 균형을 준다. skill 생태계가 package ecosystem처럼 커지면, package security보다 더 어려운 문제가 생긴다. 이유는 skill이 code와 instruction을 동시에 포함하고, agent가 그것을 사용자의 권한으로 실행하기 때문이다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>공개 registry snapshot 기반이라 시간이 지나면 수치가 바뀔 수 있다.</li><li>하지만 구조적 결론, 즉 skill이 local user privilege와 natural-language instruction을 결합한다는 점은 발표에 안정적으로 사용할 수 있다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/skill-supply-chain.html">Skill Supply Chain</a></li><li><a href="../concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

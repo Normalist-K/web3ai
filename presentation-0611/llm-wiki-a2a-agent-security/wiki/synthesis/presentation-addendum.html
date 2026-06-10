@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentation Addendum | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a class="active" href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>Presentation Addendum</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/synthesis/presentation-addendum.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: Presentation Addendum tags:</p>
+<ul><li>presentation-0611</li><li>slide-notes</li><li>a2a</li></ul>
+<p>---</p>
+<h1 id="presentation-addendum">Presentation Addendum</h1>
+<h2 id="보강-슬라이드-후보-1-a2a의-보안-공격면">보강 슬라이드 후보 1: A2A의 보안 공격면</h2>
+<p>논문 근거: <a href="../sources/a2asecbench.html">A2ASecBench</a>, <a href="../sources/agent-protocol-threat-modeling.html">Agent protocol threat modeling</a></p>
+<div class="table-scroll"><table><thead><tr><th>A2A 구성요소</th><th>왜 위험한가</th><th>발표식 표현</th></tr></thead><tbody><tr><td>AgentCard</td><td>identity와 capability를 self-declare한다</td><td>“AgentCard는 신뢰의 입구다”</td></tr><tr><td>Capability discovery</td><td>악성 peer가 정상 peer처럼 보일 수 있다</td><td>“무엇을 할 수 있는가보다 누구인가가 먼저다”</td></tr><tr><td>Task lifecycle</td><td>input-required, working 같은 상태가 resource exhaustion에 쓰일 수 있다</td><td>“workflow state도 공격면이다”</td></tr><tr><td>Artifact</td><td>markdown/html/script 등 산출물이 다음 agent나 브라우저에서 실행될 수 있다</td><td>“결과물도 메시지이자 payload다”</td></tr></tbody></table></div>
+<h2 id="보강-슬라이드-후보-2-skill-이후에도-보안-문제는-사라지지-않는다">보강 슬라이드 후보 2: Skill 이후에도 보안 문제는 사라지지 않는다</h2>
+<p>논문 근거: <a href="../sources/skill-inject.html">Skill-Inject</a>, <a href="../sources/skill-supply-chain-poisoning.html">Skill supply-chain poisoning</a>, <a href="../sources/malicious-agent-skills.html">Malicious agent skills</a></p>
+<div class="table-scroll"><table><thead><tr><th>장점</th><th>새 위험</th></tr></thead><tbody><tr><td>전문 기능을 내 agent 환경 안으로 가져온다</td><td>skill file 자체가 persistent instruction이 된다</td></tr><tr><td>tool/API 사용법을 재사용 가능하게 만든다</td><td>코드 예시와 설정 템플릿이 action-space payload가 될 수 있다</td></tr><tr><td>A2A보다 데이터 경계를 내가 통제하기 쉽다</td><td>skill marketplace와 GitHub repo provenance가 중요해진다</td></tr></tbody></table></div>
+<h2 id="보강-슬라이드-후보-3-로컬-에이전트가-a2a-peer가-될-때">보강 슬라이드 후보 3: 로컬 에이전트가 A2A peer가 될 때</h2>
+<p>논문 근거: <a href="../sources/openclaw-security-analysis.html">OpenClaw security analysis</a>, <a href="../sources/clawworm.html">ClawWorm</a>, <a href="../sources/openclaw-threats-fasa.html">OpenClaw FASA</a></p>
+<p>핵심 그림 설명:</p>
+<ol><li>외부 A2A peer가 AgentCard와 artifact를 보낸다.</li><li>내 로컬 agent가 그것을 user-like instruction이나 trusted artifact로 받아들인다.</li><li>로컬 agent는 shell, filesystem, browser, messaging channel에 접근할 수 있다.</li><li>따라서 A2A message가 직접 명령은 아니어도 실행 환경을 간접적으로 흔들 수 있다.</li></ol>
+<p>짧은 결론:</p>
+<blockquote><p>A2A는 네트워크 프로토콜이고, 로컬 agent는 실행 principal이다. 둘이 만나면 보안 경계는 네트워크가 아니라 내 컴퓨터까지 내려온다.</p></blockquote>
+<h2 id="보강-슬라이드-후보-4-필요한-선언">보강 슬라이드 후보 4: 필요한 선언</h2>
+<p>논문 묶음에서 역으로 도출되는 A2A agent declaration:</p>
+<ul><li>나는 누구를 대리하는가.</li><li>내 AgentCard는 어떻게 서명되고 검증되는가.</li><li>capability는 선언뿐 아니라 어떻게 attest되는가.</li><li>token은 얼마나 짧고 얼마나 좁은 scope인가.</li><li>artifact는 누가 sanitize하고 어디에서 render되는가.</li><li>내 skill과 tool은 어떤 provenance와 permission을 갖는가.</li><li>어떤 action은 human approval을 요구하는가.</li><li>로그는 나중에 누가 검증할 수 있는가.</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

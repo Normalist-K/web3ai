@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security Threat Modeling for Emerging AI-Agent Protocols | A2A Agent Security LLM Wiki</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">A2A</span>
+        <span>
+          <strong>Agent Security</strong>
+          <small>LLM Wiki</small>
+        </span>
+      </a>
+      <nav aria-label="Wiki navigation">
+<div class="nav-group"><h2>Start</h2><ul>
+<li><a href="../../index.html">Overview</a></li>
+<li><a href="../../wiki/index.html">Wiki Index</a></li>
+<li><a href="../../schema.html">Schema</a></li>
+<li><a href="../../raw/manifest.html">Raw Manifest</a></li>
+</ul></div>
+<div class="nav-group"><h2>Synthesis</h2><ul>
+<li><a href="../../wiki/synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a></li>
+<li><a href="../../wiki/synthesis/presentation-addendum.html">Presentation Addendum</a></li>
+</ul></div>
+<div class="nav-group"><h2>Concepts</h2><ul>
+<li><a href="../../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
+<li><a href="../../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
+<li><a href="../../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
+<li><a href="../../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
+<li><a href="../../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+</ul></div>
+<div class="nav-group"><h2>Sources</h2><ul>
+<li><a href="../../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
+<li><a class="active" href="../../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
+<li><a href="../../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
+<li><a href="../../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
+<li><a href="../../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
+<li><a href="../../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+</ul></div>
+<div class="nav-group"><h2>Notes</h2><ul>
+<li><a href="../../wiki/log.html">Ingest Log</a></li>
+<li><a href="../../raw/notes/pasted-literature-map.html">Pasted Literature Map</a></li>
+</ul></div>
+      </nav>
+    </aside>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">web3ai / presentation-0611</p>
+          <h1>Security Threat Modeling for Emerging AI-Agent Protocols</h1>
+        </div>
+        <div class="page-actions">
+          <a href="../../wiki/sources/agent-protocol-threat-modeling.md">Markdown</a>
+          <a href="../../wiki/index.html">Index</a>
+        </div>
+      </header>
+      
+      <article class="content">
+<p>--- title: Security Threat Modeling for Emerging AI-Agent Protocols authors: Zeynab Anbiaee, Mahdi Rabbani, Mansur Mirani, Gunjan Piya, Igor Opushnyev, Ali Ghorbani, Sajjad Dadkhah year: 2026 source_type: arxiv tags:</p>
+<ul><li>mcp</li><li>a2a</li><li>protocol-security</li><li>threat-modeling</li></ul>
+<p>source_pdf: ../../raw/papers/2602.11327-agent-protocol-threat-modeling.pdf source_text: ../../raw/text/2602.11327-agent-protocol-threat-modeling.txt source_url: https://arxiv.org/abs/2602.11327 ---</p>
+<h1 id="security-threat-modeling-for-emerging-ai-agent-protocols">Security Threat Modeling for Emerging AI-Agent Protocols</h1>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>MCP, A2A, Agora, ANP를 protocol lifecycle 관점에서 비교하며, identity binding, token scope/lifetime, provenance, update/revocation이 agent protocol 보안의 핵심임을 정리한다.</p>
+<h2 id="발표에-쓸-포인트">발표에 쓸 포인트</h2>
+<ul><li>A2A가 OAuth2/JWT를 쓴다고 해서 충분한 보안이 보장되는 것은 아니다.</li><li>A2A에는 AgentCard uniqueness, semantic minimization, token lifetime, artifact integrity 같은 문제가 남는다.</li><li>MCP와 A2A가 연결될 때 “tool provider identity”와 “agent identity”를 분리해서 검증해야 한다.</li></ul>
+<h2 id="핵심-내용">핵심 내용</h2>
+<p>논문은 네 프로토콜을 creation/configuration, operation, update/maintenance 단계로 나누어 위험을 평가한다. A2A는 OAuth2/JWT가 있어 MCP보다 일부 위험을 줄이지만 다음 약점이 남는다고 본다.</p>
+<ul><li>AgentCard identity가 self-declared이고 global uniqueness가 약할 수 있다.</li><li>transport authentication은 있어도 semantic validation은 별도 문제다.</li><li>token이 long-lived이거나 scope가 넓으면 privilege reuse가 생긴다.</li><li>artifact와 update 검증은 배포 주체의 구현에 의존한다.</li></ul>
+<p>논문은 MCP에 대해 wrong-provider tool execution case study를 수행한다. 이는 A2A 논문은 아니지만, “이름과 설명만으로 tool/agent를 선택하면 안 된다”는 발표 메시지에 연결된다.</p>
+<h2 id="이-발표와의-연결">이 발표와의 연결</h2>
+<p>발표의 MCP와 A2A 구분을 보강한다. MCP는 내 agent가 tool/data provider를 호출하는 구조이고, A2A는 agent끼리 상호작용하는 구조다. 둘 다 identity binding과 provenance가 필요하지만, 실패 지점은 다르다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<ul><li>논문의 실험 case study는 MCP 중심이다.</li><li>A2A 관련 내용은 비교 threat modeling과 qualitative risk assessment로 쓰는 것이 적합하다.</li></ul>
+<h2 id="연결된-개념">연결된 개념</h2>
+<ul><li><a href="../concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li><li><a href="../concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
