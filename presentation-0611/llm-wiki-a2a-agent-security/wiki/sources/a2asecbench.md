@@ -12,6 +12,16 @@ source_url: https://openreview.net/forum?id=LfdFnakqGJ
 
 # A2ASecBench
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 100 |
+| Presentation Relevance | 100 |
+| Priority | 100 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 A2A 기반 multi-agent system을 AgentCard, capability discovery, task lifecycle, artifact exchange 전반에서 공격 가능한 프로토콜 보안 대상으로 모델링하고, 여섯 가지 공격 benchmark를 제시한다.
@@ -45,4 +55,3 @@ A2A 기반 multi-agent system을 AgentCard, capability discovery, task lifecycle
 
 - [A2A as Trust Propagation Channel](../concepts/a2a-as-trust-propagation-channel.md)
 - [Protocol-Level Defenses](../concepts/protocol-level-defenses.md)
-

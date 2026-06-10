@@ -12,6 +12,16 @@ source_url: https://arxiv.org/abs/2505.21936
 
 # RedTeamCUA
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 73 |
+| Presentation Relevance | 72 |
+| Priority | 72 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 web과 OS가 결합된 현실적 CUA 환경에서 indirect prompt injection을 평가하기 위한 hybrid sandbox와 RTC-Bench를 제안한다.
@@ -42,4 +52,3 @@ RedTeamCUA는 VM-based OS sandbox와 Docker-based web platform을 결합한다. 
 
 - [Computer-Use Agent Threat Model](../concepts/computer-use-agent-threat-model.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
-

@@ -66,6 +66,9 @@
       
       <article class="content">
 <h1 id="computer-use-agent-threat-model">Computer-Use Agent Threat Model</h1>
+<h2 id="presentation-priority">Presentation Priority</h2>
+<div class="table-scroll"><table><thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody><tr><td>Importance</td><td>86</td></tr><tr><td>Presentation Relevance</td><td>82</td></tr><tr><td>Priority</td><td>84</td></tr></tbody></table></div>
+<p><code>Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)</code></p>
 <h2 id="정의">정의</h2>
 <p>Computer-use agent threat model은 agent가 화면, browser, file system, process, network를 직접 조작할 때 악성 관찰값과 local side effect가 어떻게 연결되는지를 다룬다.</p>
 <h2 id="왜-중요한가">왜 중요한가</h2>

@@ -14,6 +14,16 @@ source_url: https://arxiv.org/abs/2604.03081
 
 # Supply-Chain Poisoning Against LLM Coding Agent Skills
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 84 |
+| Presentation Relevance | 82 |
+| Priority | 83 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 악성 지시를 직접 쓰지 않고, skill 문서의 코드 예시와 설정 템플릿 안에 payload logic을 숨기는 DDIPE 방식으로 coding agent의 action space를 오염시킬 수 있음을 보인다.
@@ -48,4 +58,3 @@ source_url: https://arxiv.org/abs/2604.03081
 
 - [Skill Supply Chain](../concepts/skill-supply-chain.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
-

@@ -13,6 +13,16 @@ sources:
 
 # Protocol-Level Defenses
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 94 |
+| Presentation Relevance | 96 |
+| Priority | 95 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 정의
 
 Protocol-level defense는 system prompt나 model refusal에 기대지 않고, identity, capability, provenance, token scope, artifact handling, lifecycle bounds를 protocol과 runtime에서 강제하는 방어다.
@@ -34,4 +44,3 @@ agent ecosystem에서는 악성 입력이 한 agent의 답변을 오염시키는
 ## 발표에서 쓸 문장
 
 “A2A 보안은 OAuth/JWT로 끝나지 않는다. identity, capability, artifact, lifecycle, provenance를 함께 묶어야 한다.”
-

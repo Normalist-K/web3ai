@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2602.11327
 
 # Security Threat Modeling for Emerging AI-Agent Protocols
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 95 |
+| Presentation Relevance | 98 |
+| Priority | 97 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 MCP, A2A, Agora, ANP를 protocol lifecycle 관점에서 비교하며, identity binding, token scope/lifetime, provenance, update/revocation이 agent protocol 보안의 핵심임을 정리한다.
@@ -47,4 +57,3 @@ MCP, A2A, Agora, ANP를 protocol lifecycle 관점에서 비교하며, identity b
 
 - [A2A as Trust Propagation Channel](../concepts/a2a-as-trust-propagation-channel.md)
 - [Protocol-Level Defenses](../concepts/protocol-level-defenses.md)
-

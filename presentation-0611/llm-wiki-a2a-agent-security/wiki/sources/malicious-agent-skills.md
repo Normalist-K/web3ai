@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2602.06547
 
 # Detecting and Understanding Malicious Agent Skills
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 82 |
+| Presentation Relevance | 78 |
+| Priority | 80 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 실제 skill registry 98,380개를 분석해 157개 confirmed malicious skills와 632개 vulnerability를 식별하며, agent skill supply-chain 위험이 이미 현실화됐음을 보인다.
@@ -48,4 +58,3 @@ source_url: https://arxiv.org/abs/2602.06547
 
 - [Skill Supply Chain](../concepts/skill-supply-chain.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
-

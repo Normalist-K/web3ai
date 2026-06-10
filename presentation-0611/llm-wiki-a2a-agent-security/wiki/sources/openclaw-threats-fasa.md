@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2603.12644
 
 # OpenClaw Threats and FASA
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 86 |
+| Presentation Relevance | 84 |
+| Priority | 85 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 OpenClaw의 prompt injection-driven RCE, sequential tool attack chain, context amnesia, supply-chain contamination을 tri-layer risk taxonomy로 정리하고 FASA라는 zero-trust agentic execution 방어 구조를 제안한다.
@@ -47,4 +57,3 @@ OpenClaw의 prompt injection-driven RCE, sequential tool attack chain, context a
 
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
 - [Protocol-Level Defenses](../concepts/protocol-level-defenses.md)
-

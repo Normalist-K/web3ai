@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2603.15727
 
 # ClawWorm
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 88 |
+| Presentation Relevance | 87 |
+| Priority | 87 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 OpenClaw류 persistent configuration, tool execution, messaging channel, skill marketplace가 결합되면 단일 메시지에서 시작한 오염이 multi-hop으로 전파될 수 있음을 보인다.
@@ -48,4 +58,3 @@ OpenClaw류 persistent configuration, tool execution, messaging channel, skill m
 - [A2A as Trust Propagation Channel](../concepts/a2a-as-trust-propagation-channel.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
 - [Skill Supply Chain](../concepts/skill-supply-chain.md)
-

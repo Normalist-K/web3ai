@@ -13,6 +13,16 @@ sources:
 
 # Skill Supply Chain
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 90 |
+| Presentation Relevance | 88 |
+| Priority | 89 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 정의
 
 agent skill은 지식, 절차, 예시 코드, 설정, helper script를 묶어 agent에게 persistent capability를 주는 artifact다. 동시에 code package와 prompt instruction의 성격을 모두 갖는 supply-chain artifact다.
@@ -30,4 +40,3 @@ skill은 내 agent 환경 안으로 전문성을 가져오는 좋은 방식이�
 ## 발표에서 쓸 문장
 
 “Skill은 전문성을 내 환경 안으로 가져오지만, 그 순간 전문성은 supply-chain artifact가 된다.”
-

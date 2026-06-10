@@ -12,6 +12,16 @@ sources:
 
 # A2A as Trust Propagation Channel
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 100 |
+| Presentation Relevance | 100 |
+| Priority | 100 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 정의
 
 A2A는 agent 사이의 request/response 채널일 뿐 아니라 identity, capability, task state, artifact, provenance에 대한 trust claim을 전파하는 채널이다.
@@ -29,4 +39,3 @@ agent는 보통 opaque backend를 가진다. 상대 agent가 AgentCard에 capabi
 ## 발표에서 쓸 문장
 
 “A2A는 메시지를 전달하는 프로토콜이 아니라, 누가 누구를 대리한다는 신뢰 주장을 전달하는 프로토콜이다.”
-

@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2601.09923
 
 # CaMeLs Can Use Computers Too
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 80 |
+| Presentation Relevance | 76 |
+| Priority | 78 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 computer-use agent에서 trusted planner와 untrusted observation을 분리하고, single-shot branching plan으로 control-flow integrity를 보장하려는 system-level defense를 제시한다.
@@ -47,4 +57,3 @@ A2A agent가 실제 웹과 OS를 조작할 수 있다면, “instruction을 잘 
 
 - [Computer-Use Agent Threat Model](../concepts/computer-use-agent-threat-model.md)
 - [Protocol-Level Defenses](../concepts/protocol-level-defenses.md)
-

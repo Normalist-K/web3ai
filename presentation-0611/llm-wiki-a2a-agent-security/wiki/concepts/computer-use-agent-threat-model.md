@@ -13,6 +13,16 @@ sources:
 
 # Computer-Use Agent Threat Model
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 86 |
+| Presentation Relevance | 82 |
+| Priority | 84 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 정의
 
 Computer-use agent threat model은 agent가 화면, browser, file system, process, network를 직접 조작할 때 악성 관찰값과 local side effect가 어떻게 연결되는지를 다룬다.
@@ -30,4 +40,3 @@ A2A agent가 외부 웹, 문서, 메시지, 상대 agent artifact를 보고 작�
 ## 발표에서 쓸 문장
 
 “외부 세계와 상호작용하는 agent의 보안 단위는 답변이 아니라 side effect다.”
-

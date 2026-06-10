@@ -66,6 +66,9 @@
       
       <article class="content">
 <h1 id="protocol-level-defenses">Protocol-Level Defenses</h1>
+<h2 id="presentation-priority">Presentation Priority</h2>
+<div class="table-scroll"><table><thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody><tr><td>Importance</td><td>94</td></tr><tr><td>Presentation Relevance</td><td>96</td></tr><tr><td>Priority</td><td>95</td></tr></tbody></table></div>
+<p><code>Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)</code></p>
 <h2 id="정의">정의</h2>
 <p>Protocol-level defense는 system prompt나 model refusal에 기대지 않고, identity, capability, provenance, token scope, artifact handling, lifecycle bounds를 protocol과 runtime에서 강제하는 방어다.</p>
 <h2 id="왜-중요한가">왜 중요한가</h2>

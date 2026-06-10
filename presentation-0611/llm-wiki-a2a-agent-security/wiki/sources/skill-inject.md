@@ -14,6 +14,16 @@ source_url: https://arxiv.org/abs/2602.20156
 
 # Skill-Inject
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 90 |
+| Presentation Relevance | 89 |
+| Priority | 89 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 agent skill file이 전문 기능 확장의 수단이면서 동시에 prompt injection과 harmful action의 공급망 표면이 될 수 있음을 benchmark로 측정한다.
@@ -47,4 +57,3 @@ agent skill file이 전문 기능 확장의 수단이면서 동시에 prompt inj
 
 - [Skill Supply Chain](../concepts/skill-supply-chain.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
-

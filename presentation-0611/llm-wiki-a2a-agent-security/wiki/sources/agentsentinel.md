@@ -12,6 +12,16 @@ source_url: https://arxiv.org/abs/2509.07764
 
 # AgentSentinel
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 76 |
+| Presentation Relevance | 74 |
+| Priority | 75 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 computer-use agent의 민감한 OS-level operation을 실시간으로 추적, 중단, 감사한 뒤 resume 또는 terminate하는 방어 framework다.
@@ -41,4 +51,3 @@ AgentSentinel은 client-server 구조로 agent service에 붙는다. 민감 oper
 
 - [Computer-Use Agent Threat Model](../concepts/computer-use-agent-threat-model.md)
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
-

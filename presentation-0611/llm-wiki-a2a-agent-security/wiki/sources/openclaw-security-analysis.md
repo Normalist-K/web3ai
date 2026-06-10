@@ -13,6 +13,16 @@ source_url: https://arxiv.org/abs/2603.27517
 
 # A Security Analysis of the OpenClaw AI Agent Framework
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 94 |
+| Presentation Relevance | 93 |
+| Priority | 93 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 한 줄 요약
 
 OpenClaw 470개 security advisory를 architectural layer와 trust-violation type으로 분류해, 로컬 agent runtime의 핵심 문제가 분산된 신뢰 판단과 cross-layer composition임을 보인다.
@@ -51,4 +61,3 @@ A2A agent가 로컬 OpenClaw/Codex/Claude Code류 실행 환경과 연결되면,
 - [Local Agent as Execution Principal](../concepts/local-agent-as-execution-principal.md)
 - [Skill Supply Chain](../concepts/skill-supply-chain.md)
 - [Protocol-Level Defenses](../concepts/protocol-level-defenses.md)
-

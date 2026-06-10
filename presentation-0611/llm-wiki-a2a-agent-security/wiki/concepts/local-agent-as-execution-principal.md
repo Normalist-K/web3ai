@@ -12,6 +12,16 @@ sources:
 
 # Local Agent as Execution Principal
 
+## Presentation Priority
+
+| Metric | Score |
+| --- | ---: |
+| Importance | 96 |
+| Presentation Relevance | 97 |
+| Priority | 97 |
+
+`Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)`
+
 ## 정의
 
 로컬 에이전트는 단순 assistant가 아니라 사용자의 파일, shell, browser, messaging channel, credential-adjacent surface에 action을 수행할 수 있는 실행 주체다.
@@ -29,4 +39,3 @@ A2A 메시지가 직접 명령어가 아니더라도, 로컬 에이전트가 그
 ## 발표에서 쓸 문장
 
 “로컬 에이전트가 A2A peer가 되면, 원격 메시지는 내 컴퓨터의 실행 권한과 간접적으로 연결된다.”
-
