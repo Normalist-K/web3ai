@@ -29,23 +29,23 @@
 </ul></div>
 <div class="nav-group"><h2>Concepts</h2><ul>
 <li><a href="../wiki/concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li>
-<li><a href="../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
 <li><a href="../wiki/concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li>
 <li><a href="../wiki/concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li>
 <li><a href="../wiki/concepts/skill-supply-chain.html">Skill Supply Chain</a></li>
+<li><a href="../wiki/concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li>
 </ul></div>
 <div class="nav-group"><h2>Sources</h2><ul>
 <li><a href="../wiki/sources/a2asecbench.html">A2ASecBench</a></li>
 <li><a href="../wiki/sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></li>
-<li><a href="../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
-<li><a href="../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
-<li><a href="../wiki/sources/clawworm.html">ClawWorm</a></li>
-<li><a href="../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
 <li><a href="../wiki/sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></li>
-<li><a href="../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
-<li><a href="../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
 <li><a href="../wiki/sources/skill-inject.html">Skill-Inject</a></li>
+<li><a href="../wiki/sources/clawworm.html">ClawWorm</a></li>
+<li><a href="../wiki/sources/openclaw-threats-fasa.html">OpenClaw Threats and FASA</a></li>
 <li><a href="../wiki/sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Against LLM Coding Agent Skills</a></li>
+<li><a href="../wiki/sources/malicious-agent-skills.html">Detecting and Understanding Malicious Agent Skills</a></li>
+<li><a href="../wiki/sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></li>
+<li><a href="../wiki/sources/agentsentinel.html">AgentSentinel</a></li>
+<li><a href="../wiki/sources/redteamcua.html">RedTeamCUA</a></li>
 </ul></div>
 <div class="nav-group"><h2>Notes</h2><ul>
 <li><a href="../wiki/log.html">Ingest Log</a></li>
@@ -70,10 +70,13 @@
 <p>이 wiki는 A2A, 로컬 에이전트, skill/MCP 생태계가 만날 때 생기는 보안 문제를 발표 보강자료로 정리한다.</p>
 <p>핵심 synthesis:</p>
 <ul><li><a href="synthesis/a2a-agent-security-literature-map.html">A2A Agent Security Literature Map</a>: 문헌 묶음 전체의 주장 지도.</li><li><a href="synthesis/presentation-addendum.html">Presentation Addendum</a>: 발표 슬라이드에 붙일 수 있는 짧은 보강 문장과 표.</li></ul>
+<h2 id="scoring">Scoring</h2>
+<p>아래 점수는 0-100점 척도다. <code>Importance</code>는 보안 논점 자체의 중심성, <code>Presentation Relevance</code>는 이번 발표의 &quot;A2A에 무엇을 publish할 것인가&quot; 논지와 얼마나 직접적으로 연결되는지를 뜻한다.</p>
+<p><code>Priority = round(Importance * 0.45 + Presentation Relevance * 0.55)</code></p>
 <h2 id="source-pages">Source Pages</h2>
-<ul><li><a href="sources/a2asecbench.html">A2ASecBench</a>: A2A 프로토콜 생명주기 전반의 여섯 공격과 benchmark.</li><li><a href="sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a>: OpenClaw 470개 advisory를 기반으로 한 신뢰 경계 taxonomy.</li><li><a href="sources/clawworm.html">ClawWorm</a>: OpenClaw류 에이전트 생태계에서 자기복제형 worm 가능성을 보인 논문.</li><li><a href="sources/openclaw-threats-fasa.html">Uncovering Security Threats and Architecting Defenses in Autonomous Agents</a>: OpenClaw 위협과 FASA/ClawGuard 방어 아키텍처.</li><li><a href="sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a>: MCP, A2A, Agora, ANP의 프로토콜 수준 threat modeling.</li><li><a href="sources/skill-inject.html">Skill-Inject</a>: Claude Code, Gemini CLI, Codex CLI 계열 agent skill file injection benchmark.</li><li><a href="sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems</a>: DDIPE와 coding agent skill supply-chain poisoning.</li><li><a href="sources/malicious-agent-skills.html">Do Not Mention This to the User</a>: 실제 skill registry에서 발견된 악성 agent skill 실증 연구.</li><li><a href="sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a>: computer-use agent에서 trusted planning과 untrusted observation을 분리하는 방어 모델.</li><li><a href="sources/agentsentinel.html">AgentSentinel</a>: CUA의 민감 작업을 실시간으로 가로채고 감사하는 방어 프레임워크.</li><li><a href="sources/redteamcua.html">RedTeamCUA</a>: hybrid web-OS 환경에서 CUA indirect prompt injection을 평가하는 benchmark.</li></ul>
+<div class="table-scroll"><table><thead><tr><th>Rank</th><th>Source</th><th>Importance</th><th>Presentation Relevance</th><th>Priority</th><th>Why it matters</th></tr></thead><tbody><tr><td>1</td><td><a href="sources/a2asecbench.html">A2ASecBench</a></td><td>100</td><td>100</td><td>100</td><td>A2A 프로토콜 생명주기 전반의 공격을 직접 다루므로 발표의 기준축으로 쓰기 가장 좋다.</td></tr><tr><td>2</td><td><a href="sources/agent-protocol-threat-modeling.html">Security Threat Modeling for Emerging AI-Agent Protocols</a></td><td>95</td><td>98</td><td>97</td><td>MCP, A2A, Agora, ANP를 같은 threat-modeling 프레임으로 묶어 protocol publication 경계를 설명하기 좋다.</td></tr><tr><td>3</td><td><a href="sources/openclaw-security-analysis.html">A Security Analysis of the OpenClaw AI Agent Framework</a></td><td>94</td><td>93</td><td>93</td><td>실제 에이전트 프레임워크 advisory를 기반으로 local agent, skill, runtime 경계를 분해한다.</td></tr><tr><td>4</td><td><a href="sources/skill-inject.html">Skill-Inject</a></td><td>90</td><td>89</td><td>89</td><td>Claude Code, Gemini CLI, Codex CLI류 skill file injection을 다뤄 local capability publishing 리스크와 바로 연결된다.</td></tr><tr><td>5</td><td><a href="sources/clawworm.html">ClawWorm</a></td><td>88</td><td>87</td><td>87</td><td>agent ecosystem에서 신뢰된 skill/capability가 전파 채널이 될 수 있음을 강하게 보여준다.</td></tr><tr><td>6</td><td><a href="sources/openclaw-threats-fasa.html">Uncovering Security Threats and Architecting Defenses in Autonomous Agents</a></td><td>86</td><td>84</td><td>85</td><td>FASA/ClawGuard 방어 구조가 protocol defense와 runtime guard를 잇는 보조 근거가 된다.</td></tr><tr><td>7</td><td><a href="sources/skill-supply-chain-poisoning.html">Supply-Chain Poisoning Attacks Against LLM Coding Agent Skill Ecosystems</a></td><td>84</td><td>82</td><td>83</td><td>skill supply-chain poisoning을 통해 publish 대상이 code보다 capability bundle에 가깝다는 논지를 보강한다.</td></tr><tr><td>8</td><td><a href="sources/malicious-agent-skills.html">Do Not Mention This to the User</a></td><td>82</td><td>78</td><td>80</td><td>실제 skill registry의 악성 사례를 보여줘 추상 위협을 운영 리스크로 낮춰준다.</td></tr><tr><td>9</td><td><a href="sources/camels-cua-security.html">CaMeLs Can Use Computers Too</a></td><td>80</td><td>76</td><td>78</td><td>trusted planning과 untrusted observation 분리가 local execution principal 설명에 도움을 준다.</td></tr><tr><td>10</td><td><a href="sources/agentsentinel.html">AgentSentinel</a></td><td>76</td><td>74</td><td>75</td><td>민감 작업 감시와 승인 모델을 runtime guard 사례로 활용할 수 있다.</td></tr><tr><td>11</td><td><a href="sources/redteamcua.html">RedTeamCUA</a></td><td>73</td><td>72</td><td>72</td><td>CUA indirect prompt injection 평가셋으로 후반부 실험/검증 문맥에 적합하다.</td></tr></tbody></table></div>
 <h2 id="concept-pages">Concept Pages</h2>
-<ul><li><a href="concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></li><li><a href="concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></li><li><a href="concepts/skill-supply-chain.html">Skill Supply Chain</a></li><li><a href="concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></li><li><a href="concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></li></ul>
+<div class="table-scroll"><table><thead><tr><th>Rank</th><th>Concept</th><th>Importance</th><th>Presentation Relevance</th><th>Priority</th><th>Why it matters</th></tr></thead><tbody><tr><td>1</td><td><a href="concepts/a2a-as-trust-propagation-channel.html">A2A as Trust Propagation Channel</a></td><td>100</td><td>100</td><td>100</td><td>A2A를 단순 message protocol이 아니라 trust와 capability가 이동하는 채널로 재정의하는 핵심 주장이다.</td></tr><tr><td>2</td><td><a href="concepts/local-agent-as-execution-principal.html">Local Agent as Execution Principal</a></td><td>96</td><td>97</td><td>97</td><td>최종 위험은 remote peer가 아니라 local agent 권한에서 실행되므로 발표의 보안 경계를 잡는 중심 개념이다.</td></tr><tr><td>3</td><td><a href="concepts/protocol-level-defenses.html">Protocol-Level Defenses</a></td><td>94</td><td>96</td><td>95</td><td>signed cards, scoped tokens, policy negotiation처럼 publish 단계에서 걸 수 있는 방어를 정리한다.</td></tr><tr><td>4</td><td><a href="concepts/skill-supply-chain.html">Skill Supply Chain</a></td><td>90</td><td>88</td><td>89</td><td>skill/MCP가 A2A peer와 만날 때 생기는 supply-chain surface를 설명한다.</td></tr><tr><td>5</td><td><a href="concepts/computer-use-agent-threat-model.html">Computer-Use Agent Threat Model</a></td><td>86</td><td>82</td><td>84</td><td>화면/브라우저/OS 액션을 수행하는 에이전트 위협 모델로 runtime guard 논지를 받쳐준다.</td></tr></tbody></table></div>
       </article>
     </main>
   </div>

@@ -5,6 +5,25 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, "..");
 
+const NAV_PRIORITY = new Map([
+  ["wiki/concepts/a2a-as-trust-propagation-channel.html", 100],
+  ["wiki/concepts/local-agent-as-execution-principal.html", 97],
+  ["wiki/concepts/protocol-level-defenses.html", 95],
+  ["wiki/concepts/skill-supply-chain.html", 89],
+  ["wiki/concepts/computer-use-agent-threat-model.html", 84],
+  ["wiki/sources/a2asecbench.html", 100],
+  ["wiki/sources/agent-protocol-threat-modeling.html", 97],
+  ["wiki/sources/openclaw-security-analysis.html", 93],
+  ["wiki/sources/skill-inject.html", 89],
+  ["wiki/sources/clawworm.html", 87],
+  ["wiki/sources/openclaw-threats-fasa.html", 85],
+  ["wiki/sources/skill-supply-chain-poisoning.html", 83],
+  ["wiki/sources/malicious-agent-skills.html", 80],
+  ["wiki/sources/camels-cua-security.html", 78],
+  ["wiki/sources/agentsentinel.html", 75],
+  ["wiki/sources/redteamcua.html", 72],
+]);
+
 const NAV_GROUPS = [
   {
     title: "Start",
@@ -292,15 +311,26 @@ function rootPrefixFor(htmlRelPath) {
   return depth === 0 ? "" : "../".repeat(depth);
 }
 
+function sortNavItems(items) {
+  return [...items].sort(([titleA, hrefA], [titleB, hrefB]) => {
+    const priorityA = NAV_PRIORITY.get(hrefA) ?? -1;
+    const priorityB = NAV_PRIORITY.get(hrefB) ?? -1;
+    if (priorityA !== priorityB) {
+      return priorityB - priorityA;
+    }
+    return titleA.localeCompare(titleB, "ko");
+  });
+}
+
 function buildNav(currentRelPath) {
   const parts = [];
 
   for (const group of NAV_GROUPS) {
     const items = group.items
       ? group.items
-      : [...pageMeta.values()]
+      : sortNavItems([...pageMeta.values()]
           .filter((page) => group.match(page.htmlRel))
-          .map((page) => [page.title, page.htmlRel]);
+          .map((page) => [page.title, page.htmlRel]));
 
     if (!items.length) {
       continue;
